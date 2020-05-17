@@ -1,0 +1,6 @@
+{
+    "shortTimeout": 7500,
+    "loadingTimeout": 10000,
+    "loginTimeout": 17000,
+    "testDataDir": "testData"
+}

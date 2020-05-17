@@ -1,0 +1,27 @@
+{
+  "name": "test-task",
+  "version": "1.0.0",
+  "description": "Task for test automation position",
+  "main": "conf.js",
+  "directories": {
+    "tests": "tests"
+  },
+  "scripts": {
+    "codefix": "prettier --write ./**/*{.js,json} && eslint . --fix"
+  },
+  "author": "IS",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^3.5.0",
+    "protractor": "^5.4.2",
+    "selenium": "^2.20.0",
+    "webdriver-manager": "^12.1.7"
+  },
+  "devDependencies": {
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.18.2",
+    "prettier": "^1.18.2"
+  }
+}
