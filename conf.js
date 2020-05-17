@@ -13,7 +13,7 @@ exports.config = {
   },
 
   suites: {
-    // loginPage: './tests/login.spec.js',
+    loginPage: './tests/login.spec.js',
     foldersPage: './tests/folders.spec.js'
   },
 

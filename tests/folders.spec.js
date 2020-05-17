@@ -45,11 +45,6 @@ describe('Folders page ', () => {
         folders.verifyChangedFolderName(testData.folders.changedName)
     });
 
-    xit('Expect to change order of folders in the list', () => {
-        folders.changeFolderOrder();
-        browser.sleep(5000);
-    });
-
     it('Expect to delete a folder from a list', () => {
         folders.deleteFolderLabel();
     });
@@ -58,7 +53,7 @@ describe('Folders page ', () => {
         folders.verifyFolderLabelDetele(testData.folders.changedName);
     });
 
-    it('Expect a successful log out', () => {
+    xit('Expect a successful log out', () => {
         login.logOut();
     });
 });

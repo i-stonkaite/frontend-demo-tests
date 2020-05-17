@@ -11,6 +11,7 @@ const labels = {
     btnEditLastElement: element.all(by.css('[class="pm-button pm-group-button pm-button--small"]')).last(),
     btnOpenDropdown: element.all(by.css('[class="flex-item-noshrink pm-button pm-group-button pm-button--for-icon pm-button--small"]')).last(),
     btnDelete: element(by.css('[class="dropDown-item-button w100 pr1 pl1 pt0-5 pb0-5 alignleft"]')),
+    btnConfirmDelete: element(by.xpath('//button[text()="Confirm"]')),
     lastElementListFolderLabel: element.all(by.css('[class="ellipsis"]')).last(),
     firstElementListFolderLabel: element.all(by.css('[class="ellipsis"]')).first(),
 
@@ -144,35 +145,6 @@ const labels = {
         });
     },
 
-    changeFolderOrder() {
-        // browser.actions().
-        // mouseMove(startPoint.getWebElement(), {x: 0, y: 0}).
-        // mouseDown().
-        // mouseMove(endPoint.getWebElement()).
-        // mouseUp().
-        // perform(); 
-        // browser.actions().dragAndDrop(
-        // 	element(by.xpath("/html/body/div/div[2]/div/div/div[2]/div/main/div/section[1]/ul/li[3]/div")),
-        // 	element(by.xpath("/html/body/div/div[2]/div/div/div[2]/div/main/div/section[1]/div[3]"))
-        // ).perform();       
-
-        /* browser
-    .actions()
-    .dragAndDrop(element1, element2)
-    .perform();
-browser.sleep(5000); */
-
-        browser.actions().
-            mouseDown(element(by.xpath("/html/body/div/div[2]/div/div/div[2]/div/main/div/section[1]/ul/li[3]/div"))).
-            mouseMove(element(by.xpath("/html/body/div/div[2]/div/div/div[2]/div/main/div/section[1]/div[3]"))).
-            mouseDown().
-            perform();
-
-        browser.sleep(5000);
-
-
-    },
-
     deleteFolderLabel() {
         helper.waitPresence(this.btnOpenDropdown, timeouts.loadingTimeout);
         this.btnOpenDropdown.isPresent().then(status => {
@@ -192,6 +164,17 @@ browser.sleep(5000); */
                     );
                     if (status) {
                         helper.clickElement(this.btnDelete, 'Folder\'s dropdown menu button');
+                        helper.waitPresence(this.btnConfirmDelete, timeouts.shortTimeout);
+                        this.btnConfirmDelete.isPresent().then(status => {
+                            helper.expectCondition(
+                                true,
+                                status,
+                                'Confirm delete button is missing'
+                            );
+                            if (status) {
+                                helper.clickElement(this.btnConfirmDelete, 'Confirm delete button')
+                            }
+                        });
                     }
                 });
             }

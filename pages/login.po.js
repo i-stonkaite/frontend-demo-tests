@@ -119,7 +119,7 @@ const login = {
             helper.expectCondition(
                 true,
                 status,
-                'User navigation button is missing from /inbox page'
+                'User navigation button is missing'
             );
             if (status) {
                 helper.clickElement(this.btnUserNavigation, 'User navigation button');
