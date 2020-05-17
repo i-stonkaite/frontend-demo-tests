@@ -52,8 +52,4 @@ describe('Folders page ', () => {
     it('Expect deleted folder to be no longer visibe in the folders/labels list', () => {
         folders.verifyFolderLabelDetele(testData.folders.changedName);
     });
-
-    xit('Expect a successful log out', () => {
-        login.logOut();
-    });
 });
